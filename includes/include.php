@@ -2,10 +2,10 @@
 session_start();
 require 'rb/rb.php';
 
-R::setup( 'mysql:host=localhost; dbname=haircut', 'root', 'root' );
+R::setup( 'mysql:host=localhost; dbname=dbname', '', '' );
 
 if (!R::testConnection()) {
-    exit('Нет подключения к БД111');
+    exit('Нет подключения к БД');
 }
 
 function formatstr($str){
