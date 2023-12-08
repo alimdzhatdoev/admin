@@ -42,6 +42,16 @@ function stringToImageArray(imageString) {
 
 //Выгрузка всех новостей в новости
 getData("news").then((response) => {
+    response.forEach(event => {
+        event.date = new Date(event.date);
+    });
+    
+    function compareDates(event1, event2) {
+        return event2.date - event1.date;
+    }
+    
+    response.sort(compareDates);
+
     let block = $("#news_All").empty();
     const maxCharacters = 100;
 
@@ -60,7 +70,7 @@ getData("news").then((response) => {
                 </div>
                 <div class="events_block__bottom___dops">
                     <div class="events_block__bottom___dops____date">${
-                      element.date
+                      element.date.toISOString().split('T')[0]
                     }</div>
                     <a href="new.html?id_new=${
                       element.id
@@ -97,6 +107,16 @@ if (id_new) {
 
 //Выгрузка всех новостей на главную
 getData("news").then((response) => {
+    response.forEach(event => {
+        event.date = new Date(event.date);
+    });
+    
+    function compareDates(event1, event2) {
+        return event2.date - event1.date;
+    }
+    
+    response.sort(compareDates);
+
     let block = $("#news_show_main_page").empty();
     const maxCharacters = 100;
 
@@ -122,7 +142,7 @@ getData("news").then((response) => {
                 </div>
                 <div class="events_block__bottom___dops">
                     <div class="events_block__bottom___dops____date">${
-                      response[i].date
+                      response[i].date.toISOString().split('T')[0]
                     }</div>
                     <a href="new.html?id_new=${
                       response[i].id
