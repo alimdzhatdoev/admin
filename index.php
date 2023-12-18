@@ -64,7 +64,7 @@
         <div class="autentificationForm">
             <div class="autentificationForm_title">Вход в админ панель</div>
             <div class="autentificationForm_block">
-                <form action="/hairdressing-enter/admin/?tab_name=<?php echo $tableName; ?>" method="post">
+                <form action="/admin/?tab_name=<?php echo $tableName; ?>" method="post">
                     <label for="login">Логин:</label>
                     <input type="text" name="login" placeholder="Введите логин" required>
         
